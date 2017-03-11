@@ -1,0 +1,109 @@
+FORMAT: 1A
+HOST: https://vs004.inps.co.uk
+
+# Get Patients
+TODO: Add Description
+
+# Group Misc
+
+## V2 Session Connections [/v2/session_connections]
+
+### Security  Login copy [POST]
+TODO: Add Description
+
++ Request (application/json)
+    + Headers
+
+            X-Business-TransactionId:b23e6c9e-ba44-4601-8e7c-020e6a3274a8
+            Accept-Encoding:gzip
+
+    + Attributes (Security  Login copyRequest)
+
+    + Body
+
+            {
+                "auth_type": "password",
+                "user_name": "anton.moonstone@nhs.net",
+                "secret": "password3",
+                "role_id": "884",
+                "client": {
+                    "device_id": "{{device_id}}",
+                    "product_key": "{{product_key}}",
+                    "product_version": "{{product_version}}",
+                    "other_details": "Tony testing 1489271884"
+                }
+            }
+
+
++ Response 200 
+
+
+
+
+## V1 Organisations 12345 Patients 416 [/v1/organisations/12345/patients/416]
+
+### Patient  Get Patients by ID copy [GET]
+TODO: Add Description
+
++ Request 
+    + Headers
+
+            X-Business-TransactionId:23d0b682-8a18-4c3e-8462-3c53f77dfba1
+            accept-encoding:gzip, deflate
+
+
+
+
++ Response 200 
+
+    + Headers
+
+            Accept:*/*
+            Breadcrumbid:ID-viab-vts-00002-49199-1487684066261-74-5
+            Content-length:103
+            Date:Tue, 21 Feb 2017 18:08:33 GMT
+            Id:36293EB7-F80E-4A69-A70C-C2F64DCF2ABA
+            Organisationid:12345
+            Server:Restlet-Framework/2.2.3
+            X-Originating-Security-Domain:HOSTED
+            X-Target-Practice:12345
+
+    + Attributes (object)
+
+    + Body
+
+            {
+                "status": "error",
+                "error": {
+                    "diagnostic": null,
+                    "text": "Unknown Error",
+                    "category": "FATAL",
+                    "code": "VZZZZ"
+                }
+            }
+
+
+
+
+# Data Structures
+
+## Security  Login copyRequest (object)
+
+
+### Properties
++ `auth_type` (string, required) 
++ `user_name` (string, required) 
++ `secret` (string, required) 
++ `role_id` (string, required) 
++ `client` (Client, required) 
+
+
+## Client (object)
+
+
+### Properties
++ `device_id` (string, required) 
++ `product_key` (string, required) 
++ `product_version` (string, required) 
++ `other_details` (string, required) 
+
