@@ -1,8 +1,45 @@
 FORMAT: 1A
 HOST: https://vs004.inps.co.uk
 
-# Get Patients
+# VHG_demo
 TODO: Add Description
+
+# Group Appointments
+
+## Appointments V11 Organisations 12345 Patients 1 Notes [/appointments/v1.1/organisations/12345/patients/1/notes]
+
+### Appt  Get Pat Notes copy [GET]
+TODO: Add Description
+
++ Request (application/json)
+    + Headers
+
+            X-Business-TransactionId:5a029fe2-bae8-4bd4-b6d4-b94d04fadafd
+            Accept-Encoding:gzip
+
+    + Attributes (Appt  Get Pat Notes copyRequest)
+
+    + Body
+
+            {
+                "auth_type": "password",
+                "user_name": "anton.moonstone@nhs.net",
+                "secret": "password2",
+                "role_id": "897",
+                "client": {
+                    "device_id": "1234",
+                    "product_key": "bwpelbovlywkb9se",
+                    "product_version": "3.0",
+                    "other_details": "TT Testing via Postman"
+                }
+            }
+
+
++ Response 200 
+
+
+
+
 
 # Group Misc
 
@@ -14,7 +51,7 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:c86c4b51-1713-48ca-8612-76d5747c4105
+            X-Business-TransactionId:eda75dfc-6f37-4ac1-b05b-5e691d08e0fb
             Accept-Encoding:gzip
 
     + Attributes (Security  Login copyRequest)
@@ -30,7 +67,7 @@ TODO: Add Description
                     "device_id": "{{device_id}}",
                     "product_key": "{{product_key}}",
                     "product_version": "{{product_version}}",
-                    "other_details": "Tony testing 1489963081"
+                    "other_details": "Tony testing 1490049483"
                 }
             }
 
@@ -48,7 +85,7 @@ TODO: Add Description
 + Request 
     + Headers
 
-            X-Business-TransactionId:8e749b94-83d1-43ef-b034-64508829cfd7
+            X-Business-TransactionId:21e131ac-4ec9-4ba5-9ff0-436d553937f2
             accept-encoding:gzip, deflate
 
 
@@ -87,7 +124,7 @@ TODO: Add Description
 
 # Data Structures
 
-## Security  Login copyRequest (object)
+## Appt  Get Pat Notes copyRequest (object)
 
 
 ### Properties
@@ -106,4 +143,15 @@ TODO: Add Description
 + `product_key` (string, required) 
 + `product_version` (string, required) 
 + `other_details` (string, required) 
+
+
+## Security  Login copyRequest (object)
+
+
+### Properties
++ `auth_type` (string, required) 
++ `user_name` (string, required) 
++ `secret` (string, required) 
++ `role_id` (string, required) 
++ `client` (Client, required) 
 
