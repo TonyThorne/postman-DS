@@ -6,7 +6,7 @@ TODO: Add Description
 
 # Group Appointments
 
-## Appointments V11 Organisations 12345 Patients 1 Notes [/appointments/v1.1/organisations/12345/patients/1/notes]
+## Appointments V11 Organisations 12345 Patients 3 Notes [/appointments/v1.1/organisations/12345/patients/3/notes]
 
 ### Appt  Get Pat Notes copy [GET]
 TODO: Add Description
@@ -14,7 +14,7 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:17c0fed5-7b27-46ad-a1b7-1797b6558b1f
+            X-Business-TransactionId:1dd776dc-8a4a-4f42-8e41-c67a167450fd
             Accept-Encoding:gzip
 
     + Attributes (Appt  Get Pat Notes copyRequest)
@@ -41,6 +41,42 @@ TODO: Add Description
 
 
 
+# Group MPI
+
+## V1 MasterPatientIndex PatientViews [/v1/masterPatientIndex/patientViews]
+
+### Master Patient Search copy [POST]
+TODO: Add Description
+
++ Request (application/json)
+    + Headers
+
+            X-Business-TransactionId:9c7b1fb4-99ac-49a6-bd09-923ca70690df
+            Accept-Encoding:gzip
+
+    + Attributes (Master Patient Search copyRequest)
+
+    + Body
+
+            {
+                "identifier": {
+                    "system": "http://fhir.nhs.net/Id/nhs-number",
+                    "value": ""
+                },
+                "dob": "",
+                "forenamePart": "",
+                "surnamePart": "{{patient_surname}}",
+                "postcodePart": "",
+                "address": ""
+            }
+
+
++ Response 200 
+
+
+
+
+
 # Group Misc
 
 ## V2 Session Connections [/v2/session_connections]
@@ -51,7 +87,7 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:a9d1327d-1516-4e55-a000-7be47cf99867
+            X-Business-TransactionId:c5432ddf-c3c4-4d24-a88e-5dc6d68ec5a3
             Accept-Encoding:gzip
 
     + Attributes (Security  Login copyRequest)
@@ -67,7 +103,7 @@ TODO: Add Description
                     "device_id": "{{device_id}}",
                     "product_key": "{{product_key}}",
                     "product_version": "{{product_version}}",
-                    "other_details": "Tony testing 1490135886"
+                    "other_details": "Tony testing 1490222281"
                 }
             }
 
@@ -77,7 +113,7 @@ TODO: Add Description
 
 
 
-## V1 Organisations 12345 Patients 821 [/v1/organisations/12345/patients/821]
+## V1 Organisations 12345 Patients 3 [/v1/organisations/12345/patients/3]
 
 ### Patient  Get Patients by ID copy [GET]
 TODO: Add Description
@@ -85,7 +121,7 @@ TODO: Add Description
 + Request 
     + Headers
 
-            X-Business-TransactionId:fb5bb17b-1cc8-424f-b3d0-2fe13a5e6701
+            X-Business-TransactionId:b4b5bab1-66eb-4480-a6da-ff85fc2272f1
             accept-encoding:gzip, deflate
 
 
@@ -93,31 +129,35 @@ TODO: Add Description
 
 + Response 200 
 
+
+
+
+## V1 Organisations 12345 CareRecords [/v1/organisations/12345/careRecords]
+
+### Request patient record copy [POST]
+TODO: Add Description
+
++ Request (application/json)
     + Headers
 
-            Accept:*/*
-            Breadcrumbid:ID-viab-vts-00002-49199-1487684066261-74-5
-            Content-length:103
-            Date:Tue, 21 Feb 2017 18:08:33 GMT
-            Id:36293EB7-F80E-4A69-A70C-C2F64DCF2ABA
-            Organisationid:12345
-            Server:Restlet-Framework/2.2.3
-            X-Originating-Security-Domain:HOSTED
-            X-Target-Practice:12345
+            X-Business-TransactionId:92be5beb-1b3a-413c-88b2-fa63876afccb
+            Accept-Encoding:gzip
 
-    + Attributes (object)
+    + Attributes (Request patient record copyRequest)
 
     + Body
 
             {
-                "status": "error",
-                "error": {
-                    "diagnostic": null,
-                    "text": "Unknown Error",
-                    "category": "FATAL",
-                    "code": "VZZZZ"
-                }
+                "patient": {
+                    "id": "506",
+                    "dob": "1981-04-28"
+                },
+                "filter": {}
             }
+
+
++ Response 200 
+
 
 
 
@@ -145,6 +185,26 @@ TODO: Add Description
 + `other_details` (string, required) 
 
 
+## Master Patient Search copyRequest (object)
+
+
+### Properties
++ `identifier` (Identifier, required) 
++ `dob` (string, required) 
++ `forenamePart` (string, required) 
++ `surnamePart` (string, required) 
++ `postcodePart` (string, required) 
++ `address` (string, required) 
+
+
+## Identifier (object)
+
+
+### Properties
++ `system` (string, required) 
++ `value` (string, required) 
+
+
 ## Security  Login copyRequest (object)
 
 
@@ -154,4 +214,20 @@ TODO: Add Description
 + `secret` (string, required) 
 + `role_id` (string, required) 
 + `client` (Client, required) 
+
+
+## Request patient record copyRequest (object)
+
+
+### Properties
++ `patient` (Patient, required) 
++ `filter` (object, required) 
+
+
+## Patient (object)
+
+
+### Properties
++ `id` (string, required) 
++ `dob` (string, required) 
 
