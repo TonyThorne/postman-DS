@@ -14,7 +14,7 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:1dd776dc-8a4a-4f42-8e41-c67a167450fd
+            X-Business-TransactionId:ba6e450e-e603-4283-83d4-95df436ffe3d
             Accept-Encoding:gzip
 
     + Attributes (Appt  Get Pat Notes copyRequest)
@@ -51,7 +51,7 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:9c7b1fb4-99ac-49a6-bd09-923ca70690df
+            X-Business-TransactionId:777d24eb-0e99-4ae6-a36d-3be2f1779b3b
             Accept-Encoding:gzip
 
     + Attributes (Master Patient Search copyRequest)
@@ -87,7 +87,7 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:c5432ddf-c3c4-4d24-a88e-5dc6d68ec5a3
+            X-Business-TransactionId:e1a6dcd3-e66f-4194-b6b4-4816d233f0e7
             Accept-Encoding:gzip
 
     + Attributes (Security  Login copyRequest)
@@ -103,7 +103,7 @@ TODO: Add Description
                     "device_id": "{{device_id}}",
                     "product_key": "{{product_key}}",
                     "product_version": "{{product_version}}",
-                    "other_details": "Tony testing 1490222281"
+                    "other_details": "Tony testing 1490308682"
                 }
             }
 
@@ -121,7 +121,7 @@ TODO: Add Description
 + Request 
     + Headers
 
-            X-Business-TransactionId:b4b5bab1-66eb-4480-a6da-ff85fc2272f1
+            X-Business-TransactionId:ccb08228-efff-4320-a126-f38055670cbc
             accept-encoding:gzip, deflate
 
 
@@ -140,7 +140,7 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:92be5beb-1b3a-413c-88b2-fa63876afccb
+            X-Business-TransactionId:e54659d3-8d89-403a-bda8-fd6a9f5c726b
             Accept-Encoding:gzip
 
     + Attributes (Request patient record copyRequest)
@@ -149,10 +149,71 @@ TODO: Add Description
 
             {
                 "patient": {
-                    "id": "506",
-                    "dob": "1981-04-28"
+                    "id": "3",
+                    "dob": "1950-11-08"
                 },
                 "filter": {}
+            }
+
+
++ Response 200 
+
+
+
+### Write chronic back pain [PATCH]
+TODO: Add Description
+
++ Request (application/json)
+    + Headers
+
+            X-Business-TransactionId:aa37586d-bb7d-4a6b-9f4a-6f6c92056ca0
+            Accept-Encoding:gzip
+
+    + Attributes (Write chronic back painRequest)
+
+    + Body
+
+            {
+                "patient": [
+                    {
+                        "id": "3",
+                        "dob": "1950-11-08",
+                        "consultation": [
+                            {
+                                "eventdate": "2017-03-22",
+                                "master_id": "3",
+                                "category": {
+                                    "coding": [
+                                        {
+                                            "system": "http://visionhealth.co.uk/picklist",
+                                            "code": "COT009",
+                                            "display": "Surgery consultation"
+                                        }
+                                    ]
+                                },
+                                "items": [
+                                    {
+                                        "codedEntry": {
+                                            "eventdate": "2017-03-22",
+                                            "master_id": "3",
+                                            "topic": 1,
+                                            "code": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://read.info/readv2",
+                                                        "code": "16C9.00",
+                                                        "display": "Chronic low back pain"
+                                                    }
+                                                ]
+                                            },
+                                            "notes": "TT and Russ 1490308682"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
 
 
@@ -230,4 +291,71 @@ TODO: Add Description
 ### Properties
 + `id` (string, required) 
 + `dob` (string, required) 
+
+
+## Write chronic back painRequest (object)
+
+
+### Properties
++ `patient` (array[Patient9], required) 
+
+
+## Patient9 (object)
+
+
+### Properties
++ `id` (string, required) 
++ `dob` (string, required) 
++ `consultation` (array[Consultation], required) 
+
+
+## Consultation (object)
+
+
+### Properties
++ `eventdate` (string, required) 
++ `master_id` (string, required) 
++ `category` (Category, required) 
++ `items` (array[Item], required) 
+
+
+## Category (object)
+
+
+### Properties
++ `coding` (array[Coding], required) 
+
+
+## Coding (object)
+
+
+### Properties
++ `system` (string, required) 
++ `code` (string, required) 
++ `display` (string, required) 
+
+
+## Item (object)
+
+
+### Properties
++ `codedEntry` (CodedEntry, required) 
+
+
+## CodedEntry (object)
+
+
+### Properties
++ `eventdate` (string, required) 
++ `master_id` (string, required) 
++ `topic` (number, required) 
++ `code` (Code, required) 
++ `notes` (string, required) 
+
+
+## Code (object)
+
+
+### Properties
++ `coding` (array[Coding], required) 
 
