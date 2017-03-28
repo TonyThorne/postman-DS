@@ -14,25 +14,11 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:8a3ac664-ff62-4f08-b469-bf50377f402e
+            X-Business-TransactionId:20ce0b0d-46c8-433b-9e39-3c2eb1674777
             Accept-Encoding:gzip
+            Authorization:vision_connection token=3:2-2-66a2d1eb2ad6415187f181071c505ea8-315b09845a45417fbf2dc2eed17817f5
 
-    + Attributes (Appt  Get Pat Notes copyRequest)
 
-    + Body
-
-            {
-                "auth_type": "password",
-                "user_name": "anton.moonstone@nhs.net",
-                "secret": "password2",
-                "role_id": "897",
-                "client": {
-                    "device_id": "1234",
-                    "product_key": "bwpelbovlywkb9se",
-                    "product_version": "3.0",
-                    "other_details": "TT Testing via Postman"
-                }
-            }
 
 
 + Response 200 
@@ -51,8 +37,9 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:6bf89b1b-e77a-4f96-abca-aa84efd36ccf
+            X-Business-TransactionId:7e9da1ed-c3c7-4b58-ae0a-2281531c1f3a
             Accept-Encoding:gzip
+            Authorization:vision_connection token=3:2-2-66a2d1eb2ad6415187f181071c505ea8-315b09845a45417fbf2dc2eed17817f5
 
     + Attributes (Master Patient Search copyRequest)
 
@@ -87,7 +74,7 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:fbb08f34-c673-4d3d-b6bf-ff5990b8ce3f
+            X-Business-TransactionId:2a90b9ce-d69f-4f1b-91de-5f1b9506e0e7
             Accept-Encoding:gzip
 
     + Attributes (Security  Login copyRequest)
@@ -103,7 +90,7 @@ TODO: Add Description
                     "device_id": "{{device_id}}",
                     "product_key": "{{product_key}}",
                     "product_version": "{{product_version}}",
-                    "other_details": "Tony testing 1490654282"
+                    "other_details": "Tony testing 1490740685"
                 }
             }
 
@@ -118,11 +105,12 @@ TODO: Add Description
 ### Patient  Get Patients by ID copy [GET]
 TODO: Add Description
 
-+ Request 
++ Request (application/json)
     + Headers
 
-            X-Business-TransactionId:e5a77e31-3095-4d47-9df4-4e7a5bf673cf
+            X-Business-TransactionId:0c188f70-dffe-40f6-84d5-9f41d79f6759
             accept-encoding:gzip, deflate
+            Authorization:vision_connection token=3:2-2-66a2d1eb2ad6415187f181071c505ea8-315b09845a45417fbf2dc2eed17817f5
 
 
 
@@ -140,8 +128,9 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:418c3d2a-3a0b-43fa-b40a-a45a94756cf6
+            X-Business-TransactionId:65ac6736-278e-41f3-a4bf-a4258ff51d46
             Accept-Encoding:gzip
+            Authorization:vision_connection token=3:2-2-66a2d1eb2ad6415187f181071c505ea8-315b09845a45417fbf2dc2eed17817f5
 
     + Attributes (Request patient record copyRequest)
 
@@ -166,8 +155,9 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:0d81880f-e05c-4d59-9fb9-c82e3f0bd948
+            X-Business-TransactionId:311a7620-d2a1-45a4-8bf4-069a027b15d5
             Accept-Encoding:gzip
+            Authorization:vision_connection token=3:2-2-66a2d1eb2ad6415187f181071c505ea8-315b09845a45417fbf2dc2eed17817f5
 
     + Attributes (Write chronic back painRequest)
 
@@ -206,7 +196,7 @@ TODO: Add Description
                                                     }
                                                 ]
                                             },
-                                            "notes": "TT and max 1490654282"
+                                            "notes": "TT and max 1490740685"
                                         }
                                     }
                                 ]
@@ -224,27 +214,6 @@ TODO: Add Description
 
 
 # Data Structures
-
-## Appt  Get Pat Notes copyRequest (object)
-
-
-### Properties
-+ `auth_type` (string, required) 
-+ `user_name` (string, required) 
-+ `secret` (string, required) 
-+ `role_id` (string, required) 
-+ `client` (Client, required) 
-
-
-## Client (object)
-
-
-### Properties
-+ `device_id` (string, required) 
-+ `product_key` (string, required) 
-+ `product_version` (string, required) 
-+ `other_details` (string, required) 
-
 
 ## Master Patient Search copyRequest (object)
 
@@ -277,6 +246,16 @@ TODO: Add Description
 + `client` (Client, required) 
 
 
+## Client (object)
+
+
+### Properties
++ `device_id` (string, required) 
++ `product_key` (string, required) 
++ `product_version` (string, required) 
++ `other_details` (string, required) 
+
+
 ## Request patient record copyRequest (object)
 
 
@@ -297,10 +276,10 @@ TODO: Add Description
 
 
 ### Properties
-+ `patient` (array[Patient9], required) 
++ `patient` (array[Patient7], required) 
 
 
-## Patient9 (object)
+## Patient7 (object)
 
 
 ### Properties
