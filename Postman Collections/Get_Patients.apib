@@ -9,12 +9,11 @@ TODO: Add Description
 ## Appointments V11 Organisations 12345 Patients 3 Notes [/appointments/v1.1/organisations/12345/patients/3/notes]
 
 ### Appt  Get Pat Notes copy [GET]
-TODO: Add Description
 
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:c781285f-93d9-4eeb-9728-ef7c80505ec4
+            X-Business-TransactionId:59c39b1b-c168-4d1c-a079-198fbb26e620
             Accept-Encoding:gzip
             Authorization:vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d
 
@@ -32,12 +31,18 @@ TODO: Add Description
 ## V1 MasterPatientIndex PatientViews [/v1/masterPatientIndex/patientViews]
 
 ### Master Patient Search copy [POST]
-TODO: Add Description
+Post a set filter criteria to the "patientViews" collection and return display details for the matching patients. Filter criteria can be partial.
+
+## Supported ID systems are;
+
+* NHS
+
+* CHI
 
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:0d700035-2541-4076-834a-3d4982222222
+            X-Business-TransactionId:69b80852-e8d1-4308-8906-752f37d1fe8f
             Accept-Encoding:gzip
             Authorization:vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d
 
@@ -69,12 +74,12 @@ TODO: Add Description
 ## V2 Session Connections [/v2/session_connections]
 
 ### Security  Login copy [POST]
-TODO: Add Description
+Get session connections
 
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:09a937f9-6415-4126-a765-876f539ae157
+            X-Business-TransactionId:d0136cdd-478c-4509-b6c6-eded4b8f82fb
             Accept-Encoding:gzip
 
     + Attributes (Security  Login copyRequest)
@@ -90,7 +95,7 @@ TODO: Add Description
                     "device_id": "{{device_id}}",
                     "product_key": "{{product_key}}",
                     "product_version": "{{product_version}}",
-                    "other_details": "Tony testing 1511390596"
+                    "other_details": "Tony testing 1511476777"
                 }
             }
 
@@ -103,12 +108,11 @@ TODO: Add Description
 ## V1 Organisations 12345 Patients 3 [/v1/organisations/12345/patients/3]
 
 ### Patient  Get Patients by ID copy [GET]
-TODO: Add Description
 
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:15f8b67c-2ee3-413e-b136-376f6ab5ac6b
+            X-Business-TransactionId:0e921040-2f9f-4d1b-a534-81f4f45fe207
             accept-encoding:gzip, deflate
             Authorization:vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d
 
@@ -123,12 +127,14 @@ TODO: Add Description
 ## V1 Organisations 12345 CareRecords [/v1/organisations/12345/careRecords]
 
 ### Request patient record copy [POST]
-TODO: Add Description
+Get care records
+
+Pass in patient id and DoB.
 
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:319ec9f3-abf9-45a0-a297-24056c9bbfeb
+            X-Business-TransactionId:208074a7-c25f-424c-9dae-f3990923eeab
             Accept-Encoding:gzip
             Authorization:vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d
 
@@ -150,12 +156,12 @@ TODO: Add Description
 
 
 ### Write chronic back pain [PATCH]
-TODO: Add Description
+First write back
 
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:97def59a-49fe-4351-9266-75224e87cc30
+            X-Business-TransactionId:7c3bedcd-742a-4f31-95ff-bab84013efd2
             Accept-Encoding:gzip
             Authorization:vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d
 
@@ -196,7 +202,7 @@ TODO: Add Description
                                                     }
                                                 ]
                                             },
-                                            "notes": "TT and max 1511390596"
+                                            "notes": "TT and max 1511476777"
                                         }
                                     }
                                 ]
