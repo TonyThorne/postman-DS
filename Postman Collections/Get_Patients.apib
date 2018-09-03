@@ -1,343 +1,397 @@
-FORMAT: 1A
-HOST: https://vs004.inps.co.uk
-
-# VHG_demo
-TODO: Add Description
-
-# Group Appointments
-
-## Appointments V11 Organisations 12345 Patients 3 Notes [/appointments/v1.1/organisations/12345/patients/3/notes]
-
-### Appt  Get Pat Notes copy [GET]
-TODO: Add Description
-
-+ Request (application/json)
-    + Headers
-
-            X-Business-TransactionId:69d354d4-9164-4f8b-bfaf-e493564bbb66
-            Accept-Encoding:gzip
-
-
-
-
-+ Response 200 
-
-
-
-
-
-# Group MPI
-
-## V1 MasterPatientIndex PatientViews [/v1/masterPatientIndex/patientViews]
-
-### Master Patient Search copy [POST]
-Post a set filter criteria to the "patientViews" collection and return display details for the matching patients. Filter criteria can be partial.
-
-## Supported ID systems are;
-
-* NHS
-
-* CHI
-
-+ Request (application/json)
-    + Headers
-
-            X-Business-TransactionId:4edb1999-f46e-43cd-9799-3a3cceb0d52f
-            Accept-Encoding:gzip
-
-    + Attributes (Master Patient Search copyRequest)
-
-    + Body
-
+{
+  "info": {
+    "_postman_id": "10276-aecbe2f5-56cb-8e7f-c8b2-2349c7fb0b5c",
+    "name": "VHG_demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "10276-29296ea5-db2d-342d-9468-cefb40380163",
+      "name": "Appointments",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "10276-a8982d34-aa92-96b2-048f-cbc0ea8fb5f9",
+          "name": "Appt - Get Pat Notes copy",
+          "event": [
             {
-                "identifier": {
-                    "system": "http://fhir.nhs.net/Id/nhs-number",
-                    "value": "{{nhs_no}}"
-                },
-                "dob": "1950-11-08",
-                "forenamePart": "{{patient_forename}}",
-                "surnamePart": "{{patient_surname}}",
-                "postcodePart": "{{patient_postcode}}",
-                "address": "{{patient_address}}"
-            }
-
-
-+ Response 200 
-
-
-
-
-
-# Group Misc
-
-## V2 Session Connections [/v2/session_connections]
-
-### Security  Login copy [POST]
-Get session connections
-
-+ Request (application/json)
-    + Headers
-
-            X-Business-TransactionId:e6f2c5fc-57a4-4998-8e6e-0d3b32f299de
-            Accept-Encoding:gzip
-
-    + Attributes (Security  Login copyRequest)
-
-    + Body
-
-            {
-                "auth_type": "password",
-                "user_name": "anton.moonstone@nhs.net",
-                "secret": "password3",
-                "role_id": "884",
-                "client": {
-                    "device_id": "{{device_id}}",
-                    "product_key": "{{product_key}}",
-                    "product_version": "{{product_version}}",
-                    "other_details": "Tony testing 1535927882"
-                }
-            }
-
-
-+ Response 200 
-
-
-
-
-## V1 Organisations 12345 Patients 3 [/v1/organisations/12345/patients/3]
-
-### Patient  Get Patients by ID copy [GET]
-TODO: Add Description
-
-+ Request (application/json)
-    + Headers
-
-            X-Business-TransactionId:ac5e459e-e992-4883-9973-c9c24f5e5851
-            accept-encoding:gzip, deflate
-
-
-
-
-+ Response 200 
-
-
-
-
-## V1 Organisations 12345 CareRecords [/v1/organisations/12345/careRecords]
-
-### Request patient record copy [POST]
-Get care records
-
-Pass in patient id and DoB.
-
-+ Request (application/json)
-    + Headers
-
-            X-Business-TransactionId:b4adb32d-f403-45d4-be06-d0fcc0a2e778
-            Accept-Encoding:gzip
-
-    + Attributes (Request patient record copyRequest)
-
-    + Body
-
-            {
-                "patient": {
-                    "id": "3",
-                    "dob": "1950-11-08"
-                },
-                "filter": {}
-            }
-
-
-+ Response 200 
-
-
-
-### Write chronic back pain [PATCH]
-First write back
-
-+ Request (application/json)
-    + Headers
-
-            X-Business-TransactionId:a738f6ea-7aca-46a9-9b4b-127e47793b87
-            Accept-Encoding:gzip
-
-    + Attributes (Write chronic back painRequest)
-
-    + Body
-
-            {
-                "patient": [
-                    {
-                        "id": "3",
-                        "dob": "1950-11-08",
-                        "consultation": [
-                            {
-                                "eventdate": "2017-03-22",
-                                "master_id": "3",
-                                "category": {
-                                    "coding": [
-                                        {
-                                            "system": "http://visionhealth.co.uk/picklist",
-                                            "code": "COT009",
-                                            "display": "Surgery consultation"
-                                        }
-                                    ]
-                                },
-                                "items": [
-                                    {
-                                        "codedEntry": {
-                                            "eventdate": "2017-03-22",
-                                            "master_id": "3",
-                                            "topic": 1,
-                                            "code": {
-                                                "coding": [
-                                                    {
-                                                        "system": "http://read.info/readv2",
-                                                        "code": "16C9.00",
-                                                        "display": "Chronic low back pain"
-                                                    }
-                                                ]
-                                            },
-                                            "notes": "TT and max 1535927882"
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    }
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Response time should be less than 500ms\"] = responseTime < 500;\r",
+                  "tests[\"Status should be 200\"] = (responseCode.code === 200);\r",
+                  "\r",
+                  "if (responseCode.code === 200) {\r",
+                  "    \r",
+                  "    try {\r",
+                  "            var data = JSON.parse(responseBody);\r",
+                  "            //if (Object.keys(data).patient.notes.text != null) {\r",
+                  "                console.log(\"Patient notes: \" + data.patient.notes.text);\r",
+                  "            //}\r",
+                  "\r",
+                  "        }\r",
+                  "      \r",
+                  "    catch(err) {\r",
+                  "        console.log(err);\r",
+                  "    }\r",
+                  "}\r",
+                  ""
                 ]
+              }
             }
-
-
-+ Response 200 
-
-
-
-
-
-# Data Structures
-
-## Master Patient Search copyRequest (object)
-
-
-### Properties
-+ `identifier` (Identifier, required) 
-+ `dob`: `1950-11-08` (string, required) 
-+ `forenamePart`: `{{patient_forename}}` (string, required) 
-+ `surnamePart`: `{{patient_surname}}` (string, required) 
-+ `postcodePart`: `{{patient_postcode}}` (string, required) 
-+ `address`: `{{patient_address}}` (string, required) 
-
-
-## Identifier (object)
-
-
-### Properties
-+ `system`: `http://fhir.nhs.net/Id/nhs-number` (string, required) 
-+ `value`: `{{nhs_no}}` (string, required) 
-
-
-## Security  Login copyRequest (object)
-
-
-### Properties
-+ `auth_type`: `password` (string, required) 
-+ `user_name`: `anton.moonstone@nhs.net` (string, required) 
-+ `secret`: `password3` (string, required) 
-+ `role_id`: `884` (string, required) 
-+ `client`: `884` (Client, required) 
-
-
-## Client (object)
-
-
-### Properties
-+ `device_id`: `{{device_id}}` (string, required) 
-+ `product_key`: `{{product_key}}` (string, required) 
-+ `product_version`: `{{product_version}}` (string, required) 
-+ `other_details`: `Tony testing 1535927882` (string, required) 
-
-
-## Request patient record copyRequest (object)
-
-
-### Properties
-+ `patient` (Patient, required) 
-+ `filter`: `{}` (object, required) 
-
-
-## Patient (object)
-
-
-### Properties
-+ `id`: `3` (string, required) 
-+ `dob`: `1950-11-08` (string, required) 
-
-
-## Write chronic back painRequest (object)
-
-
-### Properties
-+ `patient` (array[Patient7], required) 
-
-
-## Patient7 (object)
-
-
-### Properties
-+ `id`: `3` (string, required) 
-+ `dob`: `1950-11-08` (string, required) 
-+ `consultation`: `1950-11-08` (array[Consultation], required) 
-
-
-## Consultation (object)
-
-
-### Properties
-+ `eventdate`: `2017-03-22` (string, required) 
-+ `master_id`: `3` (string, required) 
-+ `category`: `3` (Category, required) 
-+ `items`: `3` (array[Item], required) 
-
-
-## Category (object)
-
-
-### Properties
-+ `coding` (array[Coding], required) 
-
-
-## Coding (object)
-
-
-### Properties
-+ `system`: `http://visionhealth.co.uk/picklist` (string, required) 
-+ `code`: `COT009` (string, required) 
-+ `display`: `Surgery consultation` (string, required) 
-
-
-## Item (object)
-
-
-### Properties
-+ `codedEntry` (CodedEntry, required) 
-
-
-## CodedEntry (object)
-
-
-### Properties
-+ `eventdate`: `2017-03-22` (string, required) 
-+ `master_id`: `3` (string, required) 
-+ `topic`: `1` (number, required) 
-+ `code`: `1` (Code, required) 
-+ `notes`: `TT and max 1535927882` (string, required) 
-
-
-## Code (object)
-
-
-### Properties
-+ `coding` (array[Coding], required) 
-
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Business-TransactionId",
+                "value": "{{$guid}}"
+              },
+              {
+                "key": "Accept-Encoding",
+                "value": "gzip"
+              },
+              {
+                "key": "Authorization",
+                "value": "vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"auth_type\": \"password\",\r\n    \"user_name\": \"anton.moonstone@nhs.net\",\r\n    \"secret\": \"password2\",\r\n    \"role_id\": \"897\",\r\n    \"client\": {\r\n        \"device_id\": \"1234\",\r\n        \"product_key\": \"bwpelbovlywkb9se\",\r\n        \"product_version\": \"3.0\",\r\n        \"other_details\": \"TT Testing via Postman\"\r\n    }\r\n}"
+            },
+            "url": "https://vs004.inps.co.uk/appointments/v1.1/organisations/12345/patients/3/notes"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "10276-7e967f1c-580d-873b-cb23-a8dd834396bc",
+      "name": "MPI",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "10276-d5fc5aa8-4c44-8095-9138-d5dc9b43b038",
+          "name": "Master Patient Search copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Response time should be less than 1000ms\"] = responseTime < 1000;\r",
+                  "tests[\"Status should be 200\"] = (responseCode.code === 200);\r",
+                  "if (responseCode.code === 200) {\r",
+                  "    \r",
+                  "    try {\r",
+                  "            var pat_data = JSON.parse(responseBody);\r",
+                  "                //postman.setEnvironmentVariable(\"patient_dob\", pat_data.patients[0].dob);\r",
+                  "                //postman.setEnvironmentVariable(\"patient_global_id\", pat_data.patients[0].id);\r",
+                  "            var n = pat_data.patients.length;\r",
+                  "            console.log(\"number of patients = \" + n);\r",
+                  "            \r",
+                  "            var data = \"Numner of patients\" + n;\r",
+                  "            var options = {encoding:'utf8', flag:'a'};\r",
+                  "\t\t\r",
+                  "            for (i = 0; i < n; i++) { \r",
+                  "\r",
+                  "                console.log(\"nhs_no: \" + pat_data.patients[i].identifiers[0].value + \" \" + \"pat_dob: \" + pat_data.patients[i].dob + \" \" + \"Surname: \" + pat_data.patients[i].surname + \" \" + \"forename: \" + pat_data.patients[i].forename);\r",
+                  "\r",
+                  "                if (pat_data.patients[0].identifiers[0].value === null) {\r",
+                  "                    console.log(\"!!*** NO NHS NUMBER ***!\");\r",
+                  "                }\r",
+                  "                \r",
+                  "            }           \r",
+                  "        }\r",
+                  "    \r",
+                  "    catch(err) {\r",
+                  "        console.log(err);\r",
+                  "    }\r",
+                  "}\r",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Business-TransactionId",
+                "value": "{{$guid}}"
+              },
+              {
+                "key": "Accept-Encoding",
+                "value": "gzip"
+              },
+              {
+                "key": "Authorization",
+                "value": "vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"identifier\": {\r\n    \"system\": \"http://fhir.nhs.net/Id/nhs-number\",\r\n    \"value\": \"{{nhs_no}}\"\r\n  },\r\n  \"dob\": \"1950-11-08\",\r\n  \"forenamePart\": \"{{patient_forename}}\",\r\n  \"surnamePart\": \"{{patient_surname}}\",\r\n  \"postcodePart\": \"{{patient_postcode}}\",\r\n  \"address\": \"{{patient_address}}\"\r\n}"
+            },
+            "url": "https://vs004.inps.co.uk/v1/masterPatientIndex/patientViews",
+            "description": "Post a set filter criteria to the \"patientViews\" collection and return display details for the matching patients. Filter criteria can be partial.\r\n## Supported ID systems are;\r\n* NHS\r\n* CHI"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "10276-bb2ac78a-73f1-56e2-f409-641a5cc2f00a",
+      "name": "Security - Login copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "postman.clearEnvironmentVariable(\"token\");\r",
+              "postman.clearEnvironmentVariable(\"org_id\");\r",
+              "\r",
+              "//Response time less than 1000ms\r",
+              "tests[\"Response time should be less than 1000ms\"] = responseTime < 1000;\r",
+              "\r",
+              "tests[\"Status should be 200\"] = (responseCode.code === 200);\r",
+              "\r",
+              "if (responseCode.code === 200) {\r",
+              "    \r",
+              "    try {\r",
+              "            var envData = JSON.parse(responseBody);\r",
+              "                postman.setEnvironmentVariable(\"token\", envData.token);\r",
+              "                postman.setEnvironmentVariable(\"org_id\", envData.session.role_profiles[0].organisation);\r",
+              "                console.log(\"Token: \" + envData.token);\r",
+              "                console.log(\"User: \" + envData.session.user);\r",
+              "                console.log(\"org_id: \" + envData.session.role_profiles[0].organisation);\r",
+              "    }\r",
+              "    \r",
+              "    catch(err) {\r",
+              "        console.log(err);\r",
+              "    }\r",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Business-TransactionId",
+            "value": "{{$guid}}"
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "gzip"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"auth_type\": \"password\",\r\n    \"user_name\": \"anton.moonstone@nhs.net\",\r\n    \"secret\": \"password3\",\r\n    \"role_id\": \"884\",\r\n    \"client\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"product_key\": \"{{product_key}}\",\r\n        \"product_version\": \"{{product_version}}\",\r\n        \"other_details\": \"Tony testing {{$timestamp}}\"\r\n    }\r\n}"
+        },
+        "url": "https://vs004.inps.co.uk/v2/session_connections",
+        "description": "Get session connections"
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "10276-a5264e84-4033-a200-6835-f0635c1d15bc",
+      "name": "Patient - Get Patients by ID copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Response time should be less than 1000ms\"] = responseTime < 1000;\r",
+              "tests[\"Status should be 200\"] = (responseCode.code === 200);\r",
+              "\r",
+              "if (responseCode.code === 200) {\r",
+              "    \r",
+              "    try {\r",
+              "            var pat_data = JSON.parse(responseBody);\r",
+              "                postman.setEnvironmentVariable(\"patient_dob\", pat_data.patient_details.patient.dob);\r",
+              "                console.log(\"pat_id: \" + pat_data.patient_details.patient.entity_id);\r",
+              "                console.log(pat_data.patient_details.patient.forename1 + \" \" + pat_data.patient_details.patient.surname);\r",
+              "\r",
+              "                \r",
+              "                if (pat_data.patient_details.patient.nhs_no === null) {\r",
+              "                    console.log(\"!!*** NO NHS NUMBER ***!\");\r",
+              "                }\r",
+              "    }\r",
+              "    \r",
+              "    catch(err) {\r",
+              "        console.log(err);\r",
+              "    }\r",
+              "}\r",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Business-TransactionId",
+            "value": "{{$guid}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate"
+          },
+          {
+            "key": "Authorization",
+            "value": "vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "https://vs004.inps.co.uk/v1/organisations/12345/patients/3"
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "10276-7bb034f6-9def-2c7e-5ce8-09200fff1612",
+      "name": "Request patient record copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Response time should be less than 1000ms\"] = responseTime < 1000;\r",
+              "tests[\"Status should be 200\"] = (responseCode.code === 200);\r",
+              "if (responseCode.code === 200) {\r",
+              "    \r",
+              "    try {\r",
+              "            var pat_data = JSON.parse(responseBody);\r",
+              "\r",
+              "            console.log(\"Consultations = \" + pat_data.consultations.length);\r",
+              "            console.log(\"Items = \" + pat_data.items.length);\r",
+              "            \r",
+              "            var n = pat_data.items.length;\r",
+              "            var j = 0;\r",
+              "            //console.log(pat_data.items.codedEntry.coding.length); //items[*].codedEntry.code.coding[*].display\r",
+              "            \r",
+              "            for (i = 0; i < n; i++) {\r",
+              "                //console.log(i);\r",
+              "                //for (j = 0; j < 10; j++) {\r",
+              "                //    //console.log(j);\r",
+              "                    console.log(pat_data.items[i].codedEntry.code.coding[0].display);   \r",
+              "                //}\r",
+              "            }\r",
+              "           \r",
+              "        }\r",
+              "    \r",
+              "    catch(err) {\r",
+              "        console.log(err);\r",
+              "    }\r",
+              "}\r",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Business-TransactionId",
+            "value": "{{$guid}}"
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "gzip"
+          },
+          {
+            "key": "Authorization",
+            "value": "vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient\": {\n    \"id\": \"3\",\n    \"dob\": \"1950-11-08\"\n  },\n  \"filter\": {}\n}"
+        },
+        "url": "https://vs004.inps.co.uk/v1/organisations/12345/careRecords",
+        "description": "Get care records\nPass in patient id and DoB."
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "10276-e13fd4d6-ddcb-004d-11eb-5fdd91479164",
+      "name": "Write -chronic back pain",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "\r",
+              "\r",
+              "//Response time less than 1000ms\r",
+              "tests[\"Response time should be less than 1000ms\"] = responseTime < 1000;\r",
+              "\r",
+              "tests[\"Status should be 200\"] = (responseCode.code === 200);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Business-TransactionId",
+            "value": "{{$guid}}"
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "gzip"
+          },
+          {
+            "key": "Authorization",
+            "value": "vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient\": [\n    {\n      \"id\": \"3\",\n      \"dob\": \"1950-11-08\",\n      \"consultation\": [\n        {\n          \"eventdate\": \"2017-03-22\",\n          \"master_id\":\"3\",\n          \"category\": {\n            \"coding\": [\n              {\n                \"system\": \"http://visionhealth.co.uk/picklist\",\n                \"code\": \"COT009\",\n                \"display\": \"Surgery consultation\"\n              }\n            ]\n          },\n          \"items\": [\n            {\n              \"codedEntry\": {\n              \t\"eventdate\": \"2017-03-22\",\n              \t\"master_id\":\"3\",\n                \"topic\": 1,\n                \"code\": {\n                  \"coding\": [\n                    {\n                      \"system\": \"http://read.info/readv2\",\n                      \"code\": \"16C9.00\",\n                      \"display\": \"Chronic low back pain\"\n                    }\n                  ]\n                },\n                \"notes\": \"TT and max {{$timestamp}}\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+        },
+        "url": "https://vs004.inps.co.uk/v1/organisations/12345/careRecords",
+        "description": "First write back"
+      },
+      "response": []
+    }
+  ]
+}
