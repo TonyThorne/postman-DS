@@ -58,14 +58,14 @@
               },
               {
                 "key": "Authorization",
-                "value": "vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d"
+                "value": "vision_connection token={{token}}"
               }
             ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"auth_type\": \"password\",\r\n    \"user_name\": \"anton.moonstone@nhs.net\",\r\n    \"secret\": \"password2\",\r\n    \"role_id\": \"897\",\r\n    \"client\": {\r\n        \"device_id\": \"1234\",\r\n        \"product_key\": \"bwpelbovlywkb9se\",\r\n        \"product_version\": \"3.0\",\r\n        \"other_details\": \"TT Testing via Postman\"\r\n    }\r\n}"
             },
-            "url": "https://vs004.inps.co.uk/appointments/v1.1/organisations/12345/patients/3/notes"
+            "url": "https://aws-vs002.inps.co.uk//appointments/v1.1/organisations/{{org_id}}/patients/3/notes"
           },
           "response": []
         }
@@ -136,14 +136,14 @@
               },
               {
                 "key": "Authorization",
-                "value": "vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d"
+                "value": "vision_connection token={{token}}"
               }
             ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n  \"identifier\": {\r\n    \"system\": \"http://fhir.nhs.net/Id/nhs-number\",\r\n    \"value\": \"{{nhs_no}}\"\r\n  },\r\n  \"dob\": \"1950-11-08\",\r\n  \"forenamePart\": \"{{patient_forename}}\",\r\n  \"surnamePart\": \"{{patient_surname}}\",\r\n  \"postcodePart\": \"{{patient_postcode}}\",\r\n  \"address\": \"{{patient_address}}\"\r\n}"
             },
-            "url": "https://vs004.inps.co.uk/v1/masterPatientIndex/patientViews",
+            "url": "https://aws-vs002.inps.co.uk//v1/masterPatientIndex/patientViews",
             "description": "Post a set filter criteria to the \"patientViews\" collection and return display details for the matching patients. Filter criteria can be partial.\r\n## Supported ID systems are;\r\n* NHS\r\n* CHI"
           },
           "response": []
@@ -204,9 +204,9 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"auth_type\": \"password\",\r\n    \"user_name\": \"anton.moonstone@nhs.net\",\r\n    \"secret\": \"password3\",\r\n    \"role_id\": \"884\",\r\n    \"client\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"product_key\": \"{{product_key}}\",\r\n        \"product_version\": \"{{product_version}}\",\r\n        \"other_details\": \"Tony testing {{$timestamp}}\"\r\n    }\r\n}"
+          "raw": "{\r\n    \"auth_type\": \"password\",\r\n    \"user_name\": \"bash@test2.com\",\r\n    \"secret\": \"vision360\",\r\n    \"role_id\": \"{{role_id}}\",\r\n    \"client\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"product_key\": \"{{product_key}}\",\r\n        \"product_version\": \"{{product_version}}\",\r\n        \"other_details\": \"Tony testing {{$timestamp}}\"\r\n    }\r\n}"
         },
-        "url": "https://vs004.inps.co.uk/v2/session_connections",
+        "url": "https://aws-vs002.inps.co.uk//v2/session_connections",
         "description": "Get session connections"
       },
       "response": []
@@ -263,14 +263,14 @@
           },
           {
             "key": "Authorization",
-            "value": "vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d"
+            "value": "vision_connection token={{token}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": ""
         },
-        "url": "https://vs004.inps.co.uk/v1/organisations/12345/patients/3"
+        "url": "https://aws-vs002.inps.co.uk//v1/organisations/{{org_id}}/patients/3"
       },
       "response": []
     },
@@ -333,14 +333,14 @@
           },
           {
             "key": "Authorization",
-            "value": "vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d"
+            "value": "vision_connection token={{token}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n  \"patient\": {\n    \"id\": \"3\",\n    \"dob\": \"1950-11-08\"\n  },\n  \"filter\": {}\n}"
         },
-        "url": "https://vs004.inps.co.uk/v1/organisations/12345/careRecords",
+        "url": "https://aws-vs002.inps.co.uk//v1/organisations/{{org_id}}/careRecords",
         "description": "Get care records\nPass in patient id and DoB."
       },
       "response": []
@@ -381,14 +381,14 @@
           },
           {
             "key": "Authorization",
-            "value": "vision_connection token=3:2-2-d1187f51968b4a4fbf972164aebfcfa4-cc93bfb90fc54cc88bb65bd0ebcedc7d"
+            "value": "vision_connection token={{token}}"
           }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n  \"patient\": [\n    {\n      \"id\": \"3\",\n      \"dob\": \"1950-11-08\",\n      \"consultation\": [\n        {\n          \"eventdate\": \"2017-03-22\",\n          \"master_id\":\"3\",\n          \"category\": {\n            \"coding\": [\n              {\n                \"system\": \"http://visionhealth.co.uk/picklist\",\n                \"code\": \"COT009\",\n                \"display\": \"Surgery consultation\"\n              }\n            ]\n          },\n          \"items\": [\n            {\n              \"codedEntry\": {\n              \t\"eventdate\": \"2017-03-22\",\n              \t\"master_id\":\"3\",\n                \"topic\": 1,\n                \"code\": {\n                  \"coding\": [\n                    {\n                      \"system\": \"http://read.info/readv2\",\n                      \"code\": \"16C9.00\",\n                      \"display\": \"Chronic low back pain\"\n                    }\n                  ]\n                },\n                \"notes\": \"TT and max {{$timestamp}}\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
         },
-        "url": "https://vs004.inps.co.uk/v1/organisations/12345/careRecords",
+        "url": "https://aws-vs002.inps.co.uk//v1/organisations/{{org_id}}/careRecords",
         "description": "First write back"
       },
       "response": []
