@@ -6,11 +6,7 @@ TODO: Add Description
 
 # Group Appointments
 
-## Appointments V11 Organisations Patients 3 Notes [/appointments/v1.1/organisations/{org_id}/patients/3/notes]
-
-+ Parameters
-    + org_id (string, required)
-
+## Appointments V11 Organisations Patients 3 Notes [/appointments/v1.1/organisations//patients/3/notes]
 
 ### Appt  Get Pat Notes copy [GET]
 TODO: Add Description
@@ -18,9 +14,9 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:1374104c-3a94-4190-b4f5-987f076cc746
+            X-Business-TransactionId:5f3e1914-8099-4cc7-8545-0235786d875c
             Accept-Encoding:gzip
-            Authorization:vision_connection token={{token}}
+            Authorization:vision_connection token=
 
 
 
@@ -45,9 +41,9 @@ Post a set filter criteria to the "patientViews" collection and return display d
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:b01f3b8e-f5f6-46cc-b16c-10215dedc2b8
+            X-Business-TransactionId:ed5cc942-2b5c-4ff7-81ab-756c15ec0604
             Accept-Encoding:gzip
-            Authorization:vision_connection token={{token}}
+            Authorization:vision_connection token=
 
 
     + Attributes (Master Patient Search copy Request)
@@ -84,7 +80,7 @@ Get session connections
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:1a069db7-bd0e-40eb-80e3-5786c33a0797
+            X-Business-TransactionId:ab7a31dd-73b4-479f-9372-4dd051b5d49b
             Accept-Encoding:gzip
 
 
@@ -97,12 +93,12 @@ Get session connections
                 "auth_type": "password",
                 "user_name": "fiona.venus@inps.net",
                 "secret": "password1",
-                "role_id": "897",
+                "role_id": "269",
                 "client": {
                     "device_id": "{{device_id}}",
                     "product_key": "{{product_key}}",
                     "product_version": "{{product_version}}",
-                    "other_details": "Tony testing 1562020687"
+                    "other_details": "Tony testing 1562107082"
                 }
             }
 
@@ -112,11 +108,7 @@ Get session connections
 
 
 
-## V1 Organisations Patients 3 By Org Id [/v1/organisations/{org_id}/patients/3]
-
-+ Parameters
-    + org_id (string, required)
-
+## V1 Organisations Patients 3 [/v1/organisations//patients/3]
 
 ### Patient  Get Patients by ID copy [GET]
 TODO: Add Description
@@ -124,9 +116,9 @@ TODO: Add Description
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:8c64b28e-0334-4046-9e2b-afbd12916db5
+            X-Business-TransactionId:7cd8ac7a-b018-4382-b7a4-1b0696304e4a
             accept-encoding:gzip, deflate
-            Authorization:vision_connection token={{token}}
+            Authorization:vision_connection token=
 
 
 
@@ -137,11 +129,7 @@ TODO: Add Description
 
 
 
-## V1 Organisations CareRecords By Org Id [/v1/organisations/{org_id}/careRecords]
-
-+ Parameters
-    + org_id (string, required)
-
+## V1 Organisations CareRecords [/v1/organisations//careRecords]
 
 ### Request patient record copy [POST]
 Get care records
@@ -150,13 +138,23 @@ Pass in patient id and DoB.
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:2b914380-ae97-4e3d-9efa-32b31f522b83
+            X-Business-TransactionId:5f4dd92a-b5aa-4193-9a00-5250103ebc6e
             Accept-Encoding:gzip
-            Authorization:vision_connection token={{token}}
+            Authorization:vision_connection token=
 
 
     + Attributes (Request patient record copy Request)
 
+
+    + Body
+
+            {
+                "patient": {
+                    "id": "3",
+                    "dob": "1996-07-05"
+                },
+                "filter": {}
+            }
 
 
 + Response 200 
@@ -169,13 +167,58 @@ First write back
 + Request (application/json)
     + Headers
 
-            X-Business-TransactionId:51d092f8-ec95-4270-af08-a0d8d4649590
+            X-Business-TransactionId:0e9662a2-95d6-4cfb-916e-8109234c68c4
             Accept-Encoding:gzip
-            Authorization:vision_connection token={{token}}
+            Authorization:vision_connection token=
 
 
     + Attributes (Write chronic back pain Request)
 
+
+    + Body
+
+            {
+                "patient": [
+                    {
+                        "id": "3",
+                        "dob": "1996-07-05",
+                        "consultation": [
+                            {
+                                "eventdate": "2017-03-22",
+                                "master_id": "3",
+                                "category": {
+                                    "coding": [
+                                        {
+                                            "system": "http://visionhealth.co.uk/picklist",
+                                            "code": "COT009",
+                                            "display": "Surgery consultation"
+                                        }
+                                    ]
+                                },
+                                "items": [
+                                    {
+                                        "codedEntry": {
+                                            "eventdate": "2017-03-22",
+                                            "master_id": "3",
+                                            "topic": 1,
+                                            "code": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://read.info/readv2",
+                                                        "code": "16C9.00",
+                                                        "display": "Chronic low back pain"
+                                                    }
+                                                ]
+                                            },
+                                            "notes": "TT and max 1562107082"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
 
 
 + Response 200 
