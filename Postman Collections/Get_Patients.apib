@@ -1,354 +1,131 @@
-FORMAT: 1A
-HOST: https://aws-vs002.inps.co.uk
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>APIMATIC - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    
+
+    
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.css" rel="stylesheet" />
+<link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollbar/0.2.11/jquery.scrollbar.min.css"
+          integrity="sha256-nVXk5aDYc/D4r9OoqxZ5H6vpIAqAG5BhVuIdOihDN1c="
+          crossorigin="anonymous" />
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+
+<link href="/bundles/front-css?v=5cc8tdDAN86fLsP3hA4mwaeZHhprhYi9JC7-9qiNjdQ1" rel="stylesheet"/>
+
+    <link href="/bundles/onboarding-css?v=OkE3LPqCxZO4VvCfP5gezTWQD3lRyMqFJHasxdy9ECU1" rel="stylesheet"/>
+
+
+    
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+</head>
+<body>
+    <div class="container onboarding-container">
+            <div class="onboarding-container-centered ">
+                
+
+
+
+<header class="flex flex-col align-center">
+    <div class="icon">
+        <a href="/">
+            <img class="mx-auto d-block" alt="APIMATIC logo" title="Welcome to APIMATIC" src="/imgs/apimatic-logo.svg" />
+        </a>
+    </div>
+    <div class="content">
+        <p>Login to your account</p>
+    </div>
+
+</header>
+<section class="form-wrapper flex flex-col">
+
+<form action="/account/login?ReturnUrl=%2Fapi%2Ftransform%3Fformat%3Dapiblueprint%26apikey%3DmONZg6E9hVHp7-WXsHucCGl-lXLvzN0t9GGEQ_s1xgrILHdXq_d50wEd8ptizzQN" id="loginForm" method="post" novalidate="True" role="form"><input name="__RequestVerificationToken" type="hidden" value="thisMqV3_vLoNtdjT1VWbLDv5PUaKnHrpcPSxU80pkK-hNz-T9TQs_seMLH7S5vjlN28uIi11igXe5lWmMxf-Uhex8wW6m_XeFTGrMrls5I1" /><div class="validation-summary-valid" data-valmsg-summary="true"><ul><li style="display:none"></li>
+</ul></div>        <div class="form-group">
+            <label class="mb-1" for="signInInputEmail1">
+                Email
+            </label>
+            <input class="form-control form-control-sm" data-Validation="email" data-val="true" data-val-email="The Email Address field is not a valid e-mail address." data-val-required="Email is required" id="Email" name="Email" placeholder="Enter email here" required="required" tabindex="2" type="email" value="" />
+
+        </div>
+        <div class="form-group mb-0">
+            <label class="mb-1" for="signInInputPassword">
+                Password
+            </label>
+            <a class="forgot-password" href="/account/forgotpassword?Length=7">Forgot password?</a>
+            <input class="form-control extra-padding-right" data-title="Caps lock is on" data-toggle="tooltip" data-trigger="manual" data-val="true" data-val-required="Password is required" id="js-onboarding-password-field" name="Password" placeholder="Password" required="true" type="password" />
+            <i class="fa fa-eye onboarding-show-password-icon" id="js-onboarding-show-password-icon"></i>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input class="custom-control-input" data-val="true" data-val-required="The Remember me? field is required." id="customControlInline" name="RememberMe" tabindex="4" type="checkbox" value="true" /><input name="RememberMe" type="hidden" value="false" />
+                Remember me
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm btn-block" tabindex="5">
+            Login
+        </button>
+        <a href="/account/register" class="btn btn-white btn-sm btn-block" tabindex="6">
+            Sign Up
+        </a>
+</form></section>
 
-# VHG_demo
-TODO: Add Description
+            </div>
+    </div>
+</body>
+</html>
 
-# Group Appointments
 
-## Appointments V11 Organisations Patients 3 Notes [/appointments/v1.1/organisations//patients/3/notes]
 
-### Appt  Get Pat Notes copy [GET]
-TODO: Add Description
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-+ Request (application/json)
-    + Headers
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.js"></script>
 
-            X-Business-TransactionId:68eaf07c-9dcd-4eeb-8c3b-6ae092c3d8e9
-            Accept-Encoding:gzip
-            Authorization:vision_connection token=
+<script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
 
+<script src="/bundles/front-js?v="></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+<script>
+    $.validate({
+        modules: 'date, security'
+    });
+</script>
+<script src="/bundles/onboarding-js?v=2h6We__p_84-tByynY6kDWiE-iuM8Pigjw1rycnNaQY1"></script>
 
 
-
-+ Response 200 
-
-
-
-
-
-# Group MPI
-
-## V1 MasterPatientIndex PatientViews [/v1/masterPatientIndex/patientViews]
-
-### Master Patient Search copy [POST]
-Post a set filter criteria to the "patientViews" collection and return display details for the matching patients. Filter criteria can be partial.
-## Supported ID systems are;
-* NHS
-* CHI
-
-+ Request (application/json)
-    + Headers
-
-            X-Business-TransactionId:fe9da6d4-d176-49c0-b8d7-061693260c2e
-            Accept-Encoding:gzip
-            Authorization:vision_connection token=
-
-
-    + Attributes (Master Patient Search copy Request)
-
-
-    + Body
-
-            {
-                "identifier": {
-                    "system": "http://fhir.nhs.net/Id/nhs-number",
-                    "value": "{{nhs_no}}"
-                },
-                "dob": "1996-07-05",
-                "forenamePart": "JOHN",
-                "surnamePart": "KENNEDY",
-                "postcodePart": "{{patient_postcode}}",
-                "address": "{{patient_address}}"
-            }
-
-
-+ Response 200 
-
-
-
-
-
-# Group Misc
-
-## V2 Session Connections [/v2/session_connections]
-
-### Security  Login copy [POST]
-Get session connections
-
-+ Request (application/json)
-    + Headers
-
-            X-Business-TransactionId:4326b78d-2b9d-4692-92dc-9ae67a67f0e4
-            Accept-Encoding:gzip
-
-
-    + Attributes (Security  Login copy Request)
-
-
-    + Body
-
-            {
-                "auth_type": "password",
-                "user_name": "fiona.venus@inps.net",
-                "secret": "password1",
-                "role_id": "269",
-                "client": {
-                    "device_id": "{{device_id}}",
-                    "product_key": "{{product_key}}",
-                    "product_version": "{{product_version}}",
-                    "other_details": "Tony testing 1564353485"
-                }
-            }
-
-
-+ Response 200 
-
-
-
-
-## V1 Organisations Patients 3 [/v1/organisations//patients/3]
-
-### Patient  Get Patients by ID copy [GET]
-TODO: Add Description
-
-+ Request (application/json)
-    + Headers
-
-            X-Business-TransactionId:91ae6eea-b1eb-4242-93d3-8259a637b158
-            accept-encoding:gzip, deflate
-            Authorization:vision_connection token=
-
-
-
-
-
-+ Response 200 
-
-
-
-
-## V1 Organisations CareRecords [/v1/organisations//careRecords]
-
-### Request patient record copy [POST]
-Get care records
-Pass in patient id and DoB.
-
-+ Request (application/json)
-    + Headers
-
-            X-Business-TransactionId:065bab83-7e82-4ee1-a224-aa9a68ccbde4
-            Accept-Encoding:gzip
-            Authorization:vision_connection token=
-
-
-    + Attributes (Request patient record copy Request)
-
-
-    + Body
-
-            {
-                "patient": {
-                    "id": "3",
-                    "dob": "1996-07-05"
-                },
-                "filter": {}
-            }
-
-
-+ Response 200 
-
-
-
-### Write chronic back pain [PATCH]
-First write back
-
-+ Request (application/json)
-    + Headers
-
-            X-Business-TransactionId:3b6742cc-d9a1-4137-bfa2-8586a90e663d
-            Accept-Encoding:gzip
-            Authorization:vision_connection token=
-
-
-    + Attributes (Write chronic back pain Request)
-
-
-    + Body
-
-            {
-                "patient": [
-                    {
-                        "id": "3",
-                        "dob": "1996-07-05",
-                        "consultation": [
-                            {
-                                "eventdate": "2017-03-22",
-                                "master_id": "3",
-                                "category": {
-                                    "coding": [
-                                        {
-                                            "system": "http://visionhealth.co.uk/picklist",
-                                            "code": "COT009",
-                                            "display": "Surgery consultation"
-                                        }
-                                    ]
-                                },
-                                "items": [
-                                    {
-                                        "codedEntry": {
-                                            "eventdate": "2017-03-22",
-                                            "master_id": "3",
-                                            "topic": 1,
-                                            "code": {
-                                                "coding": [
-                                                    {
-                                                        "system": "http://read.info/readv2",
-                                                        "code": "16C9.00",
-                                                        "display": "Chronic low back pain"
-                                                    }
-                                                ]
-                                            },
-                                            "notes": "TT and max 1564353485"
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-
-
-+ Response 200 
-
-
-
-
-
-# Data Structures
-
-## Master Patient Search copy Request (object)
-
-
-### Properties
-+ `identifier` (Identifier, required) 
-+ `dob` (string, required) 
-+ `forenamePart` (string, required) 
-+ `surnamePart` (string, required) 
-+ `postcodePart` (string, required) 
-+ `address` (string, required) 
-
-
-## Identifier (object)
-
-
-### Properties
-+ `system` (string, required) 
-+ `value` (string, required) 
-
-
-## Security  Login copy Request (object)
-
-
-### Properties
-+ `auth_type` (string, required) 
-+ `user_name` (string, required) 
-+ `secret` (string, required) 
-+ `role_id` (string, required) 
-+ `client` (Client, required) 
-
-
-## Client (object)
-
-
-### Properties
-+ `device_id` (string, required) 
-+ `product_key` (string, required) 
-+ `product_version` (string, required) 
-+ `other_details` (string, required) 
-
-
-## Request patient record copy Request (object)
-
-
-### Properties
-+ `patient` (Patient, required) 
-+ `filter` (object, required) 
-
-
-## Patient (object)
-
-
-### Properties
-+ `id` (string, required) 
-+ `dob` (string, required) 
-
-
-## Write chronic back pain Request (object)
-
-
-### Properties
-+ `patient` (array[Patient1], required) 
-
-
-## Patient1 (object)
-
-
-### Properties
-+ `id` (string, required) 
-+ `dob` (string, required) 
-+ `consultation` (array[Consultation], required) 
-
-
-## Consultation (object)
-
-
-### Properties
-+ `eventdate` (string, required) 
-+ `master_id` (string, required) 
-+ `category` (Category, required) 
-+ `items` (array[Item], required) 
-
-
-## Category (object)
-
-
-### Properties
-+ `coding` (array[Coding], required) 
-
-
-## Coding (object)
-
-
-### Properties
-+ `system` (string, required) 
-+ `code` (string, required) 
-+ `display` (string, required) 
-
-
-## Item (object)
-
-
-### Properties
-+ `codedEntry` (CodedEntry, required) 
-
-
-## CodedEntry (object)
-
-
-### Properties
-+ `eventdate` (string, required) 
-+ `master_id` (string, required) 
-+ `topic` (number, required) 
-+ `code` (Code, required) 
-+ `notes` (string, required) 
-
-
-## Code (object)
-
-
-### Properties
-+ `coding` (array[Coding], required) 
 
